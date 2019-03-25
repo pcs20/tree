@@ -1,0 +1,26 @@
+<mat-toolbar style="
+box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+margin-bottom: 10px;
+" color="primary">
+  <mat-toolbar-row>
+    <span>Aviso de confirmação</span>
+    <!-- <i style="
+    font-size: 48px;
+    color: #f7941e;" class="material-icons md-48">info</i> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+  <h1 mat-dialog-title>Mensagem</h1>
+  <div mat-dialog-content>
+    <p>{{data['text']}}</p>
+    <!-- <mat-form-field>
+      <input matInput placeholder="What's your name?">
+    </mat-form-field> -->
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-dialog-actions>
+    <button class="confirm" mat-raised-button style="background: #f7941e; color: #fff;" [mat-dialog-close]="true"
+      cdkFocusInitial>Confirmar</button>
+    <button class="cancel" mat-raised-button mat-button [mat-dialog-close]="false">Cancelar</button>
+  </div>
+</div>

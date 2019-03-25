@@ -1,0 +1,116 @@
+<h3>Basic Buttons</h3>
+<div class="example-button-row">
+  <button mat-button>Basic</button>
+  <button mat-button color="primary">Primary</button>
+  <button mat-button color="accent">Accent</button>
+  <button mat-button color="warn">Warn</button>
+  <button mat-button disabled>Disabled</button>
+  <a mat-button routerLink=".">Link</a>
+</div>
+
+<h3>Raised Buttons</h3>
+<div class="example-button-row">
+  <button mat-raised-button>Basic</button>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button (click)="teste()" color="warn">Warn</button>
+  <button mat-raised-button disabled>Disabled</button>
+  <a mat-raised-button routerLink="/animal">Link</a>
+</div>
+
+<mat-progress-bar *ngIf="!loading" mode="buffer"></mat-progress-bar>
+<router-outlet></router-outlet>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-8bits" fullScreen="true">
+  <p style="color: white"> Carregando suas procurações </p>
+</ngx-spinner>
+
+oi
+
+<!-- <div [ngStyle]="{'display': alm==true ? 'none' : 'initial'}" class="panel-collapse collapse in">
+  <div class="tree">
+    SISGR - SISTEMA DE SEGURNÇA INTEGRADO
+    <ul *ngFor="let v of hilda; trackBy: trackTree">
+      <li> <span><i class="fa fa-plus-square"></i>{{v['pai']}}</span>
+        <ul>
+          <li *ngFor="let i of hilda['filho']">
+            <span #listo>AAABBB--</span> <input (click)="nomade(listo)" type="radio" />
+            <ul>
+              <li>
+                <span>AAABBBCCC</span> <input type="radio" />
+                <ul>
+                  <li>
+                    <span>
+                      AAABBBCCCDDD
+                    </span> <input type="radio" />
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span>
+              AAABBB
+            </span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+<!-- <div class="panel-collapse collapse in">
+  <div class="tree">
+    SISGR - SISTEMA DE SEGURNÇA INTEGRADO
+    <ng-template #recursiveList let-list>
+      <ul *ngFor="let item of list">
+        <li *ngIf="item.children?.length > 0">
+            <span><i class="fa fa-plus-square"></i>{{item}}</span>
+          <ul>
+            <li *ngIf="item.children.length > 0"> <span><i class="fa fa-plus-square"></i>{{item['children'][0].title}}</span>
+              <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+  </div>
+</div> -->
+
+<div class="panel-collapse collapse in">
+  <div class="tree">
+    <ul>
+      <ng-template #treeView let-data >
+        <li *ngFor="let item of data; let i = index;">
+          <span #v ><i [ngClass]="{'fa fa-minus-square': item.children?.length > 0}"></i>
+            {{ item.name }}
+          </span>
+          <input [checked]="ent(item['first'], v)" (click)="nomade(v)" name="mac" type="radio" group/>
+          <ul *ngIf="item.children?.length > 0">
+            <ng-container *ngTemplateOutlet="treeView;  context:{ $implicit: item.children }"></ng-container>
+          </ul>
+        </li>
+      </ng-template>
+      <ng-container *ngTemplateOutlet="treeView; context:{ $implicit: data }"></ng-container>
+    </ul>
+  </div>
+</div>
+
+cabou
+<!--
+<h1>Angular 2 Recursive List</h1>
+<ul>
+  <ng-template #recursiveList let-list>
+    <li *ngFor="let item of list">
+      {{item.name}}
+      <ul *ngIf="item.children.length > 0">
+        a
+        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }">a</ng-container>
+      </ul>
+    </li>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+</ul> -->
+
+
+<button (click)="alm = !alm">aa</button>

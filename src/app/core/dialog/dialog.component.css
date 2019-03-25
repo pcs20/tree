@@ -1,0 +1,12 @@
+.mat-toolbar.mat-primary {
+
+}
+
+
+.confirm:hover {
+  background: rgb(255,179,45)!important;
+}
+
+.cancel {
+  border: 1px solid #058ce1;
+}
