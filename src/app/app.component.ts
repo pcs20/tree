@@ -139,7 +139,7 @@ export class AppComponent implements OnInit {
       name: 'XXXZZZTTT'
     }
      */
-    let tempo = undefined;
+    let tempo = 0;
     let ytempo = new Array();
     let control = undefined;
     for (let i = 0; i < this.ydata.length; i++) {
@@ -151,11 +151,14 @@ export class AppComponent implements OnInit {
         }]
       } else {
         control = this.ydata[i]['nivel'];
-        ytempo.forEach((e, i)=>{
-          console.log(e)
-          console.log(i)
-        })
-        ytempo[0].children.push({name: this.ydata[i]['name'], nivel: this.ydata[i]['nivel']})
+        if (ytempo[0].children[0] == undefined) {
+          ytempo[0].children.push({ name: this.ydata[i]['name'], nivel: this.ydata[i]['nivel'], children: [] })
+        } else {
+          console.log('entrou')
+          if (ytempo[0].children[tempo++].nivel - this.ydata[i]['nivel'] == -1) {
+            ytempo[0].children[0].children.push({ name: this.ydata[i]['name'], nivel: this.ydata[i]['nivel'] })
+          }
+        }
       }
     }
     console.log(ytempo)
