@@ -58,6 +58,21 @@ export class AppComponent implements OnInit {
   ];
 
 
+  ydata = [
+    {
+      nivel: 2,
+      name: 'XXX'
+    },
+    {
+      nivel: 3,
+      name: 'XXXZZZ'
+    },
+    {
+      nivel: 4,
+      name: 'XXXZZZTTT'
+    }
+  ]
+
   data: Array<any> = [
     {
       name: 'AAA',
@@ -109,6 +124,45 @@ export class AppComponent implements OnInit {
     }
   };
   ngOnInit(): void {
+
+    /**
+    {
+      nivel: 2,
+      name: 'XXX'
+    },
+    {
+      nivel: 3,
+      name: 'XXXZZZ'
+    },
+    {
+      nivel: 4,
+      name: 'XXXZZZTTT'
+    }
+     */
+    let tempo = undefined;
+    let ytempo = new Array();
+    let control = undefined;
+    for (let i = 0; i < this.ydata.length; i++) {
+      if (this.ydata[i]['nivel'] == 2) {
+        ytempo = [{
+          name: this.ydata[i]['name'],
+          nivel: 2,
+          children: []
+        }]
+      } else {
+        control = this.ydata[i]['nivel'];
+        ytempo.forEach((e, i)=>{
+          console.log(e)
+          console.log(i)
+        })
+        ytempo[0].children.push({name: this.ydata[i]['name'], nivel: this.ydata[i]['nivel']})
+      }
+    }
+    console.log(ytempo)
+    this.data.push(ytempo[0])
+    console.log(this.data)
+
+
     $(function () {
       $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
       // $('li.parent_li').find(' > ul > li').hide('fast')
