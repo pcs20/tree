@@ -1,0 +1,66 @@
+<h1>
+  titulo
+</h1>
+
+<div class="container">
+  <form [formGroup]="FormGroup">
+    <div class="row">
+      <div
+        class="col-xs-12 form-group"
+             >
+        <div
+
+          formGroupName="itemRows"
+        >
+          <div
+            class="row panel-heading text-bold"
+            style="text-align:left;margin-top:10px;margin-left:10px;"
+          >
+            form details
+          </div>
+          <ng-container *ngIf="FormGroup.controls.itemRows != null">
+            <div
+              *ngFor="
+                let itemrow of FormGroup.controls.itemRows.controls;
+                let i = index
+              "
+              [formGroupName]="i"
+            >
+              <div class="row">
+                <div class="col-md-2 form-group">
+                  <select
+                    (change)="addNewRow()"
+                    class="form-control"
+                    formControlName="Name"
+                  >
+                    <option>Alex</option>
+                    <option>Renan</option>
+                    <option>Bia</option>
+                  </select>
+                </div>
+                <div class="col-md-2 form-group">
+                  <input placeholder="RollNo" formControlName="RollNo" />
+                </div>
+                <div class="col-md-2 form-group">
+                  <input placeholder="Class" formControlName="Class" />
+                </div>
+                <div class="col-md-2 form-group">
+                  <input placeholder="MobileNo" formControlName="MobileNo" />
+                </div>
+
+                <div class="col-md-2 form-group">
+                  <button (click)="deleteRow(i)">X</button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <div class="form-group" style="text-align:right;">
+            <button type="button" (click)="addNewRow()">
+              Add New Alma
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

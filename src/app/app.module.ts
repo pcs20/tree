@@ -21,7 +21,8 @@ import {ButtonModule} from 'primeng/button';
 import {PickListModule} from 'primeng/picklist';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordionComponent } from './accordion/accordion.component';
-
+import { TableComponent } from './table/table.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AccordionComponent } from './accordion/accordion.component';
     AnimaisComponent,
     DialogComponent,
     AlmaComponent,
-    AccordionComponent
+    AccordionComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,9 @@ import { AccordionComponent } from './accordion/accordion.component';
     MatDividerModule,
     MatProgressBarModule,
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }
