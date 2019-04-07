@@ -20,6 +20,7 @@ import { AlmaComponent } from './alma/alma.component';
 import {ButtonModule} from 'primeng/button';
 import {PickListModule} from 'primeng/picklist';
 import { HttpClientModule } from '@angular/common/http';
+import { AccordionComponent } from './accordion/accordion.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     AnimaisComponent,
     DialogComponent,
-    AlmaComponent
+    AlmaComponent,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,
